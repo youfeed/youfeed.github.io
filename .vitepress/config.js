@@ -32,7 +32,7 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['meta', { name: 'og:type', content: 'website' }],
-    ['meta',{ name:'google-site-verification',content:'google-site-verification=pxIj2TQ8ApW8JuXwF82wU3qMyAWyZ19wvnhStWJ0Jo8' }]
+    ['meta',{ name:'google-site-verification',content:'ch32O-znLvvcKuWCsxL7Tb6rXsH9e0-uB80XbWp8nLE' }]
   ],
   sitemap:{
     hostname: 'https://youfeed.github.io'
