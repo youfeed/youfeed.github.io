@@ -3,6 +3,7 @@ export default defineConfig({
   title: "Youloge.Docs",
   description: "开放接口服务平台",
   themeConfig: {
+    logo: '/loge.svg',
     sidebar: {
       "/":[
         {
@@ -20,10 +21,10 @@ export default defineConfig({
       { text: '首页', link: '/' },
     ],
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/youfeed' },
-      { icon: 'NPM', link: 'https://www.npmjs.com/~youfeed' }
+      { icon: 'github', link: 'https://github.com/youfeed' }
     ],
     logo: { src: '/loge.svg', width: 24, height: 24 },
+    head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
     footer: {
       message: 'Jack Buda Co., Ltd.',
       copyright: 'Copyright © 2017-2023 Micateam'
