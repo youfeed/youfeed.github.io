@@ -3,23 +3,35 @@
 layout: home
 
 hero:
-  name: "My Awesome Project"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  name: "Youloge.Docs"
+  text: "快速、安全、零成本"
+  tagline: "扩展自己的登录、支付、钱包、云盘······"
+
   actions:
     - theme: brand
-      text: Markdown Examples
+      text: 阅读文档
       link: /markdown-examples
     - theme: alt
-      text: API Examples
+      text: API调用
       link: /api-examples
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - icon: 🚀
+    title: Youloge.RPC
+    details: 用于路由权限认证的轻量化JSON远程调用协议
+    link: ./rpc/
+    linkText: 查看
+  - icon: 🚀
+    title: Youloge.IO
+    details: 完全开放的的API接口,基于Youloge.RPC协议
+    link: ./io/
+    linkText: 查看
+  - icon: 🚀
+    title: Youloge.UI
+    details: 基于Vue3的UI组件库,适用于Youloge.IO
+    link: ./ui/
+    linkText: 查看
+    
+footer: MIT Licensed | Copyright © 2021-present
 ---
 
