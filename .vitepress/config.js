@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 export default defineConfig({
-  title: "My Awesome Project",
+  title: "Youloge.Docs",
   description: "A VitePress Site",
   themeConfig: {
     nav: [
