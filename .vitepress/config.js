@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Youloge.Docs",
   description: "开放接口服务平台",
+  logo: '/loge.svg',
   themeConfig: {
-    logo: '/loge.svg',
     sidebar: {
       "/":[
         {
@@ -29,6 +29,9 @@ export default defineConfig({
       message: 'Jack Buda Co., Ltd.',
       copyright: 'Copyright © 2017-2023 Micateam'
     },
+  },
+  sitemap:{
+    hostname: 'https://youfeed.github.io'
   }
 })
 // sidebar

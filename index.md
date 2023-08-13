@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: "Youloge.Docs"
+  name: "Youloge.Open"
   text: "快速、安全、零成本"
-  tagline: "扩展自己的登录、支付、钱包、云盘······"
+  tagline: "开放接口服务平台"
 
   actions:
     - theme: brand
