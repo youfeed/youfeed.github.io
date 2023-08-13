@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Youloge.Docs",
   description: "开放接口服务平台",
-  logo: '/loge.svg',
+
   themeConfig: {
     sidebar: {
       "/":[
@@ -24,12 +24,16 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/youfeed' }
     ],
     logo: { src: '/loge.svg', width: 24, height: 24 },
-    head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
     footer: {
       message: 'Jack Buda Co., Ltd.',
       copyright: 'Copyright © 2017-2023 Micateam'
     },
   },
+  head: [
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['meta', { name: 'og:type', content: 'website' }],
+    ['meta',{ name:'google-site-verification',content:'google-site-verification=pxIj2TQ8ApW8JuXwF82wU3qMyAWyZ19wvnhStWJ0Jo8' }]
+  ],
   sitemap:{
     hostname: 'https://youfeed.github.io'
   }
