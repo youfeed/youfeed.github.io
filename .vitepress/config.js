@@ -37,7 +37,7 @@ export default defineConfig({
   sitemap:{
     hostname: 'https://youfeed.github.io'
   }
-})
+}) 
 // sidebar
 function sidebarUI() {
   return [
