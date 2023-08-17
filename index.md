@@ -19,7 +19,7 @@ features:
   - icon: 🚀
     title: Youloge.RPC
     details: 用于路由权限认证的轻量化JSON远程调用协议
-    link: ./rpc/
+    link: ./lic/rpc
     linkText: 查看
   - icon: 🚀
     title: Youloge.IO

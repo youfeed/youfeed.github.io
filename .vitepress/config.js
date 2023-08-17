@@ -16,6 +16,7 @@ export default defineConfig({
       ],
       '/ui/': { base: '/ui/', items: sidebarUI() },
       "/io/": { base: '/io/', items: sidebarIO() },
+      "/lic/":{ base: '/lic/', items: sidebarLIC()}
     },
     nav: [
       { text: '首页', link: '/' },
@@ -51,19 +52,51 @@ function sidebarUI() {
     }
   ]
 };
+// sidebarLIC
+function sidebarLIC() {
+  return [
+    { text: '通信协议', link: 'rpc' },
+    { text: '开源协议', link: 'osi' },
+    { text: '用户协议', link: 'eula' },
+    // { text: '隐私协议', link: 'combat' }
+  ]
+}
+//
 function sidebarIO() {
   return [
     { text: '开发导读', link: 'start' },
     { text: '开发实战', link: 'combat' },
     {
       text: '登录注册',
-      base:'login',
-      collapsed: true,
+      base:'io/login/',
+      collapsed: false,
       items: [
-        { text: '登陆邮件', link: 'register' },
-        { text: '登陆验证', link: 'verify' },
-        { text: '同步资料', link: 'sync' },
+        { text: '登陆邮件(API)', link: 'code' },
+        { text: '登陆验证(API)', link: 'verify' },
+        { text: '同步资料(API)', link: 'refresh' },
+        { text: '授权登录(API)', link: 'authorize' },
       ]
-    }
+    },
+    {
+      text: '用户资料',
+      base:'io/profile/',
+      collapsed: false,
+      items: [
+        { text: '个人信息(API)', link: 'info' },
+        { text: '我的信息(VIP)', link: 'information' },
+        { text: '更换头像(VIP)', link: 'avatar' },
+        { text: '更新资料(VIP)', link: 'update' },
+      ]
+    },
+    {
+      text: 'APIKEY*',
+      base:'io/apikey/',
+      collapsed: false,
+      items: [
+        { text: '申请密钥(VIP)', link: 'apply' },
+        { text: '密钥列表(VIP)', link: 'table' },
+      ]
+    },
+    { text: '开发实战', link: 'combat' },
   ]
 }

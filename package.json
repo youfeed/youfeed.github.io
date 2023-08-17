@@ -2,7 +2,9 @@
   "name": "docs",
   "private": true,
   "type": "module",
-
+  "version": "0.1.4",
+  "description": "开放接口服务平台",
+  "author": "youfeed <11247005@qq.com>",
   "scripts": {
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
