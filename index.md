@@ -9,11 +9,11 @@ hero:
 
   actions:
     - theme: brand
-      text: 阅读文档
-      link: /markdown-examples
+      text: 产品地图
+      link: /sitemap
     - theme: alt
-      text: API调用
-      link: /api-examples
+      text: 更新日志
+      link: /release
 
 features:
   - icon: 🚀

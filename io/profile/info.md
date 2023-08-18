@@ -8,7 +8,7 @@
 :::
 
 > 前端根据`profile.uuid`获取用户信息，邮箱会进行脱敏处理
-
+> 前端根据`profile.mail`获取用户信息，新用户随机分配昵称头像()
 
 ### 请求代码
 ``` http
@@ -20,7 +20,8 @@ ukey: {{Ukey}}
 {
   "method": "info",
   "params": {
-    "uuid": "DcQlwu6o7hWu***"
+    "uuid": "DcQlwu6o7hWu***", // uuid mail 选择一个即可
+    "mail": "123******@qq.com" // 二者都填写优先使用uuid
   }
 }
 ```

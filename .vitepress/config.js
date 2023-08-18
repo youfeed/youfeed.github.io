@@ -7,10 +7,10 @@ export default defineConfig({
     sidebar: {
       "/":[
         {
-          text: 'Examples',
+          text: '©JakeBuda',
           items: [
-            { text: 'Markdown Examples', link: '/markdown-examples' },
-            { text: 'Runtime API Examples', link: '/api-examples' }
+            { text: '产品地图', link: '/sitemap' },
+            { text: '更新日志', link: '/release' }
           ]
         }
       ],
@@ -26,7 +26,7 @@ export default defineConfig({
     ],
     logo: { src: '/loge.svg', width: 24, height: 24 },
     footer: {
-      message: 'Jack Buda Co., Ltd.',
+      message: 'JackBuda Co., Ltd.',
       copyright: 'Copyright © 2017-2023 Micateam'
     },
   },
@@ -86,6 +86,15 @@ function sidebarIO() {
         { text: '我的信息(VIP)', link: 'information' },
         { text: '更换头像(VIP)', link: 'avatar' },
         { text: '更新资料(VIP)', link: 'update' },
+      ]
+    },
+    {
+      text: '钱包资金',
+      base:'io/wallet/',
+      collapsed: false,
+      items: [
+        { text: '钱包余额(VIP)', link: 'balance' },
+        { text: '资金汇率(API)', link: 'rates' },
       ]
     },
     {
