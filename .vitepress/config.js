@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+
 export default defineConfig({
   title: "Youloge.Docs",
   description: "开放接口服务平台",
@@ -37,7 +38,7 @@ export default defineConfig({
   ],
   sitemap:{
     hostname: 'https://youfeed.github.io'
-  }
+  },
 }) 
 // sidebar
 function sidebarUI() {
@@ -55,13 +56,14 @@ function sidebarUI() {
 // sidebarLIC
 function sidebarLIC() {
   return [
+    { text: '安全字符', link: 'b32' },
     { text: '通信协议', link: 'rpc' },
     { text: '开源协议', link: 'osi' },
     { text: '用户协议', link: 'eula' },
     // { text: '隐私协议', link: 'combat' }
   ]
 }
-//
+// 
 function sidebarIO() {
   return [
     { text: '开发导读', link: 'start' },
@@ -95,6 +97,17 @@ function sidebarIO() {
       items: [
         { text: '钱包余额(VIP)', link: 'balance' },
         { text: '资金汇率(API)', link: 'rates' },
+      ]
+    },
+    {
+      text: '云盘文件',
+      base:'io/drive/',
+      collapsed: false,
+      items: [
+        { text: '文件信息(API)', link: 'info' },
+        { text: '下载权限(VIP)', link: 'download' },
+        { text: '购买权限(VIP)', link: 'payment' },
+        { text: '验证购买(VIP)', link: 'verify' },
       ]
     },
     {

@@ -29,7 +29,7 @@ ukey: {{Ukey}}
   "err": 200,
   "msg": "邮件已发送",
   "data": {
-    "random": "ZTQU",
+    "random": "ZTQ",
     "access": "DcQlwu6o7hWu+JNyP******",
     "expire": 1692210923
   }
