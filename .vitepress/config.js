@@ -37,7 +37,7 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['meta', { name: 'og:type', content: 'website' }],
-    ['meta',{ name:'google-site-verification',content:'ch32O-znLvvcKuWCsxL7Tb6rXsH9e0-uB80XbWp8nLE' }]
+    ['meta',{ name:'google-site-verification',content:'3ScX1CU7RIXgnqo5akVRzf154fUUzfer1acRQcZp2RA' }]
   ],
   sitemap:{
     hostname: 'https://docs.youloge.com'
