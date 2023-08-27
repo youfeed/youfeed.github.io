@@ -4,9 +4,10 @@ outline: deep
 
 # 更新日志
 
-### Youloge.IO <Badge type="tip" text="^0.1.2" />
-- 0.1.2 完善`Docs`文档，使用新的地图逻辑解构
+### Youloge.IO <Badge type="tip" text="^0.1.3" />
+- 0.1.3 将`小组件` `案例` `管理后台` 文档也接入
 ::: details 点击查看完整更新日志
+- 0.1.2 完善`Docs`文档，使用新的地图逻辑解构
 - 0.0.1 集中整合文档
 :::
 
@@ -37,9 +38,10 @@ outline: deep
 :::
 
 
-### Youloge.LIC <Badge type="tip" text="^0.0.2" />
-- 0.0.2 整理`Youloge.OSI` 开源协议
+### Youloge.LIC <Badge type="tip" text="^0.0.4" />
+- 0.0.4 添加`Safe_Base32 ` 验证码字符
 ::: details 点击查看完整更新日志
+- 0.0.3 整理`Youloge.cors` 跨域协议
 - 0.0.2 整理`Youloge.OSI` 开源协议
 - 0.0.1 加入`Youloge.RPC` 调用协议
 :::

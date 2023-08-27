@@ -1,8 +1,8 @@
 {
   "name": "docs",
-  "private": true,
+  "private": false,
   "type": "module",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "开放接口服务平台",
   "author": "youfeed <11247005@qq.com>",
   "scripts": {

@@ -15,6 +15,9 @@ export default defineConfig({
           ]
         }
       ],
+      '/pro/': { base: '/pro/', items: sidebarPRO() },
+      '/open/': { base: '/open/', items: sidebarOPEN() },
+      '/page/': { base: '/page/', items: sidebarPAGE() },
       '/ui/': { base: '/ui/', items: sidebarUI() },
       "/io/": { base: '/io/', items: sidebarIO() },
       "/lic/":{ base: '/lic/', items: sidebarLIC()}
@@ -27,8 +30,8 @@ export default defineConfig({
     ],
     logo: { src: '/loge.svg', width: 24, height: 24 },
     footer: {
-      message: 'JackBuda Co., Ltd.',
-      copyright: 'Copyright © 2017-2023 Micateam'
+      message: '皖ICP备19004549号 皖公安34112402000344',
+      copyright: 'JackBuda Co., Ltd. © 2017-2023 Micateam'
     },
   },
   head: [
@@ -37,10 +40,51 @@ export default defineConfig({
     ['meta',{ name:'google-site-verification',content:'ch32O-znLvvcKuWCsxL7Tb6rXsH9e0-uB80XbWp8nLE' }]
   ],
   sitemap:{
-    hostname: 'https://youfeed.github.io'
+    hostname: 'https://docs.youloge.com'
   },
 }) 
-// sidebar
+// 管理后台
+function sidebarPRO() {
+  return [
+    {
+      text: '控制台',
+      base:'pro/console/',
+      collapsed: false,
+      items: [
+        { text: '数据统计', link: 'statistical' }
+      ]
+    }
+  ]
+}
+// 开放组件
+function sidebarOPEN() {
+  return [
+    { text: '开始使用', link: 'index' },
+    {
+      text: '单点登录',
+      base:'open/sso/',
+      collapsed: false,
+      items: [
+        { text: '开始使用', link: 'start' }
+      ]
+    }
+  ]
+}
+// 静态站点
+function sidebarPAGE(){
+  return [
+    { text: '开始使用', link: 'index' },
+    {
+      text: '收费云盘',
+      base:'page/drive/',
+      collapsed: false,
+      items: [
+        { text: '开始使用', link: 'start' }
+      ]
+    }
+  ]
+}
+// UI组件库
 function sidebarUI() {
   return [
     {
@@ -53,7 +97,7 @@ function sidebarUI() {
     }
   ]
 };
-// sidebarLIC
+// 协议条例
 function sidebarLIC() {
   return [
     { text: '安全字符', link: 'b32' },
@@ -64,7 +108,7 @@ function sidebarLIC() {
     // { text: '隐私协议', link: 'combat' }
   ]
 }
-// 
+// API接口
 function sidebarIO() {
   return [
     { text: '开发导读', link: 'start' },
