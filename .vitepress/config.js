@@ -57,7 +57,8 @@ function sidebarUI() {
 function sidebarLIC() {
   return [
     { text: '安全字符', link: 'b32' },
-    { text: '通信协议', link: 'rpc' },
+    { text: '远程通信', link: 'rpc' },
+    { text: '跨域通信', link: 'cors' },
     { text: '开源协议', link: 'osi' },
     { text: '用户协议', link: 'eula' },
     // { text: '隐私协议', link: 'combat' }
