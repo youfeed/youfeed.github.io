@@ -132,7 +132,7 @@ function sidebarIO() {
         { text: '个人信息(API)', link: 'info' },
         { text: '我的信息(VIP)', link: 'information' },
         { text: '更换头像(VIP)', link: 'avatar' },
-        { text: '更新资料(VIP)', link: 'update' },
+        { text: '更新昵称(VIP)', link: 'rename' },
       ]
     },
     {
@@ -140,8 +140,10 @@ function sidebarIO() {
       base:'io/wallet/',
       collapsed: false,
       items: [
-        { text: '钱包余额(VIP)', link: 'balance' },
         { text: '资金汇率(API)', link: 'rates' },
+        { text: '钱包余额(VIP)', link: 'balance' },
+        { text: '账户充值(VIP)', link: 'deposit' },
+        { text: '账户提现(DEV)', link: 'withdraw' },
       ]
     },
     {

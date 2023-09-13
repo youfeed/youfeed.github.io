@@ -1,23 +1,15 @@
-# 更换头像
-::: tip 权限组 `VIP` 路径ID `21` 方法ID `04`
+# 修改昵称
+::: tip 权限组 `VIP` 路径ID `21` 方法ID `03`
 请求域：vip.youloge.com 请求头：`Signer:signer`
 
-作用域：`profile`  方法名: `avatar`
+作用域：`profile`  方法名: `rename`
 
-错误编号：`2104 00` 频率限制: `10` 
+错误编号：`2103 00` 频率限制: `10` 
 :::
 
-> 更换头像 分为二部
-
-- 第一步请求上传地址
-- 像上传地址上传图片(七牛) 
-- 组装返回的图片ID 组装规则为：`https://img/youloge.com/${UUID}!80` 支持 `!80`,`!120`,`!150`,`!300` 等后缀
-
-? 为什么图片只提供ID，而不提供完整URL
-：项目接口是开源的，有时候开发者希望图片存储到自己服务器，这样方便开发者在自己网站组合地址。
+> 平台收集的信息非常少：目前只有 修改昵称 更换头像二个接口
 
 ### 请求代码
-
 ``` http
 POST /profile HTTP/1.1
 Host: vip.youloge.com
@@ -25,9 +17,9 @@ Lang: zh-CN
 Content-Type: application/json
 Signer: {{Signer}}
 {
-  "method": "avatar",
+  "method": "rename",
   "params": {
-    "width":"100"
+    "name":"name"
   }
 }
 ```
