@@ -4,12 +4,18 @@ outline: deep
 
 # 更新日志
 
-### Youloge.IO <Badge type="tip" text="^0.1.3" />
+### Youloge.IO <Badge type="tip" text="^0.2.0" />
 - 0.1.9 新增`plus独立umd库说明`
 ::: details 点击查看完整更新日志
 - 0.1.3 将`小组件` `案例` `管理后台` 文档也接入
 - 0.1.2 完善`Docs`文档，使用新的地图逻辑解构
 - 0.0.1 集中整合文档
+:::
+
+### Youloge.OPEN <Badge type="tip" text="^0.0.1" />
+- 0.1.9 集中整合开放单页源码文档
+::: details 点击查看完整更新日志
+- 0.0.1 集中整合开放单页源码文档
 :::
 
 ### Youloge.UI <Badge type="tip" text="^1.4.3" />
@@ -40,7 +46,7 @@ outline: deep
 
 
 ### Youloge.LIC <Badge type="tip" text="^0.0.4" />
-- 0.0.4 添加`Safe_Base32 ` 验证码字符
+- 0.0.4 添加`Safe_Base32 ` 验证字符
 ::: details 点击查看完整更新日志
 - 0.0.3 整理`Youloge.cors` 跨域协议
 - 0.0.2 整理`Youloge.OSI` 开源协议
