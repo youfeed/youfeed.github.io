@@ -91,10 +91,33 @@ function sidebarUI() {
       text: '快速开始',
       collapsed: false,
       items: [
-        { text: '开放准备', link: 'start' },
-        { text: '安装引入', link: 'combat' },
+        { text: '安装引入', link: 'index' },
+        { text: '路由配置', link: 'route' },
+        { text: '布局样式', link: 'style' },
+      ]
+    },{
+      text: '定制组件',
+      collapsed: false,
+      base:'ui/components/',
+      items: [
+        { text: '定制组件', link: 'index' },
+      ]
+    },{
+      text: '快捷指令',
+      collapsed: false,
+      base:'ui/directive/',
+      items: [
+        { text: '定制组件', link: 'index' },
+      ]
+    },{
+      text: '函数方法',
+      collapsed: false,
+      base:'ui/functions/',
+      items: [
+        { text: '定制组件', link: 'index' },
       ]
     }
+    
   ]
 };
 // 协议条例
@@ -114,14 +137,17 @@ function sidebarIO() {
     { text: '开发导读', link: 'start' },
     { text: '开发实战', link: 'combat' },
     {
+      uuid:'20',
       text: '登录注册',
       base:'io/login/',
       collapsed: false,
       items: [
-        { text: '登陆邮件(API)', link: 'code' },
-        { text: '登陆验证(API)', link: 'verify' },
-        { text: '同步资料(API)', link: 'refresh' },
-        { text: '授权登录(API)', link: 'authorize' },
+        { text: '超级令牌(API)', link: 'developer', uuid:'00' },
+        { text: '登陆邮件(DEV)', link: 'code', uuid:'01' },
+        { text: '登陆验证(VIP)', link: 'verify', uuid:'02' },
+        { text: '续期同步(VIP)', link: 'refresh', uuid:'03' },
+        { text: '授权登录(VIP)', link: 'authorize', uuid:'04' },
+        { text: '人机验证(VIP)', link: 'captcha', uuid:'01' },
       ]
     },
     {

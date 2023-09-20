@@ -27,6 +27,7 @@ ukey: {{Ukey}}
 }
 ```
 ### 响应代码
+- `signertrue 可以解密出 ticket`用户超级凭证：开发者可以授权名下任意`ukey账户使用`
 ``` json
 {
   "err": 200,
@@ -38,7 +39,7 @@ ukey: {{Ukey}}
     "avatar":"avatarURL",
     "created":"2023-08-17 03:17:05",
     "updated":"2023-08-17 03:17:05",
-    "secret": "DcQlwu6o7hWu+JNyP******",
+    "signertrue": "DcQlwu6o7hWu+JNyP******",
     "expire": 1692210923
   }
 }

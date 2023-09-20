@@ -1,6 +1,6 @@
 # 给用户发送登录邮件
-::: tip 权限组 `API` 路径ID `20` 方法ID `01`
-请求域：api.youloge.com 请求头：`Ukey:ukey`
+::: tip 权限组 `DEV` 路径ID `20` 方法ID `01`
+请求域：vip.youloge.com 请求头：`Signer:Signer`
 
 作用域：`login`  方法名: `code`
 
@@ -10,12 +10,13 @@
 > 未注册邮箱自动注册,每个邮箱每30秒可以发送一次登录邮件！
 
 ### 请求代码
+- `Signer`必须为开发者签名：强烈建议前端在此处加上防刷处理
 ``` http
 POST /login HTTP/1.1
-Host: api.youloge.com
+Host: vip.youloge.com
 Lang: zh-CN
 Content-Type: application/json
-ukey: {{Ukey}}
+Signer: {{Signer}}
 {
   "method": "code",
   "params": {

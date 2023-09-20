@@ -23,7 +23,7 @@ ukey: {{Ukey}}
   "method": "authorize",
   "params": {
     "expiry":"",
-    "secret": "DcQlwu6o7hWu+JNyP******"
+    "ticket": "DcQlwu6o7hWu+JNyP******"
   }
 }
 ```
