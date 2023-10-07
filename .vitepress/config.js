@@ -65,7 +65,14 @@ function sidebarOPEN() {
       base:'open/sso/',
       collapsed: false,
       items: [
-        { text: '开始使用', link: 'start' }
+        { text: '开始使用', link: 'index' }
+      ]
+    },{
+      text: '快捷支付',
+      base:'open/payment/',
+      collapsed: false,
+      items: [
+        { text: '余额支付', link: 'index' }
       ]
     }
   ]
