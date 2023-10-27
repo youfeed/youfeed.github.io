@@ -191,6 +191,15 @@ function sidebarIO() {
       ]
     },
     {
+      text: '托管商城',
+      base:'io/goods/',
+      collapsed: false,
+      items: [
+        { text: '开发须知', link: 'index' },
+        { text: '商品详细(API)', link: 'info' }
+      ]
+    },
+    {
       text: 'APIKEY*',
       base:'io/apikey/',
       collapsed: false,
