@@ -14,6 +14,9 @@ hero:
     - theme: alt
       text: 更新日志
       link: /release
+    - theme: brand
+      text: 交流论坛
+      link: https://github.com/orgs/Youloge/discussions
 
 features:
   - icon: 🚀
