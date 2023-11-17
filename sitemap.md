@@ -5,7 +5,7 @@
 ### 通用协议
 
 - [Youloge.RPC](/lic/rpc) - 通信协议
-- [Youloge.OSI](/lic/osi) - 开源协议
+- [Youloge.CAT](/lic/cat) - 开源协议
 
 
 ### 软件服务
