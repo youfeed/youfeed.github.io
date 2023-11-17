@@ -20,7 +20,8 @@ export default defineConfig({
       '/page/': { base: '/page/', items: sidebarPAGE() },
       '/ui/': { base: '/ui/', items: sidebarUI() },
       "/io/": { base: '/io/', items: sidebarIO() },
-      "/lic/":{ base: '/lic/', items: sidebarLIC()}
+      "/lic/":{ base: '/lic/', items: sidebarLIC()},
+      "/editor/":{ base: '/editor/', items: sidebarEditor()}
     },
     nav: [
       { text: '首页', link: '/' },
@@ -133,9 +134,18 @@ function sidebarLIC() {
     { text: '安全字符', link: 'b32' },
     { text: '远程通信', link: 'rpc' },
     { text: '跨域通信', link: 'cors' },
-    { text: '开源协议', link: 'osi' },
+    { text: '开源协议', link: 'cat' },
     { text: '用户协议', link: 'eula' },
     // { text: '隐私协议', link: 'combat' }
+  ]
+}
+// 富文本
+function sidebarEditor() {
+  return [
+    { text: '编辑器指南', link: 'index' },
+    { text: '超链接(link)', link: 'link' },
+    { text: 'UEditor', link: 'ueditor' },
+    { text: 'TinyMCE', link: 'tinymce' },
   ]
 }
 // API接口

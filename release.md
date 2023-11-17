@@ -13,6 +13,12 @@ outline: deep
 - 0.0.1 集中整合文档
 :::
 
+### Youloge.Editor <Badge type="tip" text="^0.0.1" />
+- 0.0.1 新增富文本编辑器
+::: details 点击查看完整更新日志
+- 0.0.1 新增富文本编辑器
+:::
+
 ### Youloge.OPEN <Badge type="tip" text="^0.0.1" />
 - 0.1.9 集中整合开放单页源码文档
 ::: details 点击查看完整更新日志
@@ -46,9 +52,10 @@ outline: deep
 :::
 
 
-### Youloge.LIC <Badge type="tip" text="^0.0.4" />
-- 0.0.4 添加`Safe_Base32 ` 验证字符
+### Youloge.LIC <Badge type="tip" text="^0.0.5" />
+- 0.0.5 修改`OSI` 为`Cat`协议
 ::: details 点击查看完整更新日志
+- 0.0.4 添加`Safe_Base32 ` 验证字符
 - 0.0.3 整理`Youloge.cors` 跨域协议
 - 0.0.2 整理`Youloge.OSI` 开源协议
 - 0.0.1 加入`Youloge.RPC` 调用协议

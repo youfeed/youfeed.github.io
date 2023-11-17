@@ -1,7 +1,14 @@
-# Youloge.OSI 开源协议
+# Youloge.Cat 开源协议
 
-版本：1.0
-时间：2023-08-17
+> 思想概括：你面前这只猫你可以放到自己身上抚摸随意把玩，你带着猫咪进行表演，别人的打赏是你和猫咪共同的收入，但请不要把它当作你的宠物。
+
+> 协议简介：本协议是由你Youloge.cat 所有者发起并维护的开源协议，用于保护你loge.cat 所有者对源代码的版权。
+
+> 协议版本：1.0
+
+> 协议生效日期：2023-08-17
+
+
 
 ## 协议内容
 
@@ -10,7 +17,7 @@
 协议-中文
 
 ``` txt
-Youloge.OSI 开源协议
+Youloge.Cat 开源协议
 
 版权声明 (c) 20** **
 
@@ -34,7 +41,7 @@ Youloge.OSI 开源协议
 
 协议-英文
 ``` txt
-Youloge.OSI Open Source Protocol
+Youloge.Cat Open Source Protocol
 
 Copyright Notice (c) 20 * ***
 

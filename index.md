@@ -19,35 +19,45 @@ hero:
       link: https://github.com/orgs/Youloge/discussions
 
 features:
-  - icon: 🚀
+  - icon: 🌟
     title: Youloge.PRO
     details: 开放管理后台代码：基于Youloge.IO 接口服务
     link: ./pro/
     linkText: 查看
-  - icon: 🚀
+  - icon: ☀️
     title: Youloge.RPC
     details: 具有路由权限认证的轻量化JSON远程调用协议
     link: ./lic/rpc
     linkText: 查看
-  - icon: 🚀
+  - icon: 🐹
     title: Youloge.IO
     details: 完全开放的的API接口,基于Youloge.RPC协议
     link: ./io/
     linkText: 查看
-  - icon: 🚀
+  - icon: 🐷 
     title: Youloge.Open
     details: 嵌入式小组件,快速集成接口服务到自己服务器
     link: ./open/
     linkText: 查看
-  - icon: 🚀
+  - icon: 🐥
     title: Youloge.Pages
     details: 静态站点代码：源代码案例展示基于`vite`
     link: ./page/
     linkText: 查看
-  - icon: 🚀
+  - icon: 🍄
     title: Youloge.UI
     details: 基于Vue3的UI组件库,适用于Youloge.IO
     link: ./ui/
+    linkText: 查看
+  - icon: 🌺
+    title: Youloge.Editor
+    details: 深度定制的富文本编辑器
+    link: ./editor/
+    linkText: 查看
+  - icon: 🐁 
+    title: Youloge.Custom
+    details: Web Component原生组件
+    link: ./custom/
     linkText: 查看
     
 footer: MIT Licensed | Copyright © 2021-present 
