@@ -1,6 +1,6 @@
-# 快捷支付组件 `C2B`
+# 快速购物结算组件 `C2B`
 
-> 统一支付组件：货币为# RGB * 100 取整数：需要对支付签名解密并执行`冲单 verify验证`,完成冲单验证，才认为支付成功。冲单有效期300秒，仅一次有效
+> 统一支付组件：
 
 ::: info <Badge type="info" text="usePayment" />
 - 网页端：调用`usePayment函数`发起支付请求
@@ -13,11 +13,9 @@
 usePayment({
   selector:'#',
   mail:'11247005@qq.com', 
-  mode:'profile',
-  uuid:'10003',
-  money:0,
-  local:'no.123456789',
+  local:'123456789',
   notify:'https://www.youloge.com/notify',
+  money:1
 }).then(res=>{
 
 })
@@ -28,7 +26,7 @@ usePayment({
 | mail |	付款账号	| 任意有效邮箱：付款人 |
 | mode |	模块选择	| `profile`,`drive`,`goods`,`movie`... |
 | uuid |	模块编号	| 模块产品UUID |
-| money |	付款金额	| 可选指定金额`profile模块时有效` |
+| money |	付款金额	| 可选指定金额 |
 | local |	本地单号	| 自定义订单号  |
 | notify |	同步通知地址	| `https`有效地址 |
 
@@ -47,7 +45,7 @@ Content-Type: application/json
   }
 }
 ```
-#### 解密签名`此时尚未完成支付*`
+#### 解密签名
 ```js
 {
     "uuid": "",
@@ -87,10 +85,5 @@ signer: {{signer}}
 > 支付成功 {"err":200,"msg":"确认成功"} err 为其他参数则为确认失败
 
 
-### 支付保存
 
-- 确认支付后订单有效，支付有效
-- `profile`用户转账模块，查看资金流水即可
-- `drive`,`movie` 推广购买模块，查看提成流水即可
-- `goods`商品购买模块，商家端可查看到`发货信息或收货邮箱等信息`，`推广支付`查询查看提成流水即可(确认收货提成延后到账)
 
