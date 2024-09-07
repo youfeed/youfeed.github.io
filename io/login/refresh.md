@@ -1,8 +1,8 @@
 # 同步资料和续期用户
 ::: tip 权限组 `API` 路径ID `20` 方法ID `03`
-请求域：api.youloge.com 请求头：`Ukey:ukey`
+请求域：api.youloge.com 请求头：`Authorization:Youloge-API {ukey}`
 
-作用域：`login`  方法名: `refresh`
+作用域：`login/refresh`
 
 错误编号：`2003 00` 频率限制: `10` 
 :::
@@ -17,12 +17,9 @@ POST /login HTTP/1.1
 Host: api.youloge.com
 Lang: zh-CN
 Content-Type: application/json
-ukey: {{Ukey}}
+Authorization:Youloge-API {ukey}
 {
-  "method": "refresh",
-  "params": {
-    "secret": "DcQlwu6o7hWu+JNyP******"
-  }
+  "secret": "DcQlwu6o7hWu+JNyP******"
 }
 ```
 ### 响应代码

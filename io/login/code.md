@@ -1,6 +1,6 @@
 # 给用户发送登录邮件
 ::: tip 权限组 `DEV` 路径ID `20` 方法ID `01`
-请求域：vip.youloge.com 请求头：`Signer:Signer`
+请求域：`vip.youloge.com` 请求头：`Authorization:Youloge-VIP {Signer}`
 
 作用域：`login`  方法名: `code`
 
@@ -16,12 +16,9 @@ POST /login HTTP/1.1
 Host: vip.youloge.com
 Lang: zh-CN
 Content-Type: application/json
-Signer: {{Signer}}
+Authorization:Youloge-VIP {Signer}
 {
-  "method": "code",
-  "params": {
-    "mail": "11******05@qq.com"
-  }
+  "mail": "11******05@qq.com"
 }
 ```
 ### 响应代码

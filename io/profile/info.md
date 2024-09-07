@@ -1,8 +1,8 @@
 # 前端-获取用户信息
 ::: tip 权限组 `API` 路径ID `21` 方法ID `01`
-请求域：api.youloge.com 请求头：`Ukey:ukey`
+请求域：api.youloge.com 请求头：`Authorization:Youloge-API {Ukey}`
 
-作用域：`profile`  方法名: `info`
+作用域：`profile/info`
 
 错误编号：`2101 00` 频率限制: `10` 
 :::
@@ -12,17 +12,14 @@
 
 ### 请求代码
 ``` http
-POST /profile HTTP/1.1
+POST /profile/info HTTP/1.1
 Host: api.youloge.com
 Lang: zh-CN
 Content-Type: application/json
-ukey: {{Ukey}}
+Authorization:Youloge-API {Ukey}
 {
-  "method": "info",
-  "params": {
-    "uuid": "DcQlwu6o7hWu***", // uuid mail 选择一个即可
-    "mail": "123******@qq.com" // 二者都填写优先使用uuid
-  }
+  "uuid": "DcQlwu6o7hWu***", // uuid mail 选择一个即可
+  "mail": "123******@qq.com" // 二者都填写优先使用uuid
 }
 ```
 ### 响应代码

@@ -1,8 +1,8 @@
 # 开发者登录令牌获取：请提前准备`2FA绑定工作`
 ::: tip 权限组 `API` 路径ID `20` 方法ID `01`
-请求域：vip.youloge.com 请求头：`Ukey:ukey`
+请求域：`vip.youloge.com` 请求头：`authorization:Youloge-API {ukey}`
 
-作用域：`login`  方法名: `captcha`
+作用域：`login/captcha`
 
 错误编号：`2020 00` 频率限制: `10` 
 :::
@@ -19,16 +19,13 @@
 
 ### 请求代码
 ``` http
-POST /login HTTP/1.1
+POST /login/captcha HTTP/1.1
 Host: api.youloge.com
 Lang: zh-CN
 Content-Type: application/json
-Ukey: {{ukey}}
+authorization:Youloge-API {{ukey}}
 {
-  "method": "developer",
-  "params": {
-    "code":"" // 2FA 密码
-  }
+  "code":"" // 2FA 密码
 }
 ```
 ### 响应代码

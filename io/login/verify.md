@@ -1,6 +1,6 @@
 # 验证登录邮件
 ::: tip 权限组 `API` 路径ID `20` 方法ID `02`
-请求域：api.youloge.com 请求头：`Ukey:ukey`
+请求域：api.youloge.com 请求头：`Authorization:Youloge-API {ukey}`
 
 作用域：`login`  方法名: `verify`
 
@@ -17,13 +17,10 @@ POST /login HTTP/1.1
 Host: api.youloge.com
 Lang: zh-CN
 Content-Type: application/json
-ukey: {{Ukey}}
+Authorization:Youloge-API {ukey}
 {
-  "method": "verify",
-  "params": {
-    "code":"",
-    "access": "DcQlwu6o7hWu+JNyP******"
-  }
+  "code":"",
+  "access": "DcQlwu6o7hWu+JNyP******",
 }
 ```
 ### 响应代码

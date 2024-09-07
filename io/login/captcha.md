@@ -1,8 +1,8 @@
 # 人机验证接口：占位待开发
 ::: tip 权限组 `vip` 路径ID `20` 方法ID `01`
-请求域：vip.youloge.com 请求头：`Ukey:ukey`
+请求域：vip.youloge.com 请求头：`Authorization:Youloge-API {ukey}`
 
-作用域：`login`  方法名: `captcha`
+作用域：`login/captcha`
 
 错误编号：`2020 00` 频率限制: `10` 
 :::

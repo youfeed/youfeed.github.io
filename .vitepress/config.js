@@ -173,10 +173,11 @@ function sidebarIO() {
       base:'io/profile/',
       collapsed: false,
       items: [
-        { text: '个人信息(API)', link: 'info' },
-        { text: '我的信息(VIP)', link: 'information' },
+        { text: '开放信息(API)', link: 'info' },
+        { text: '个人信息(VIP)', link: 'information' },
         { text: '更换头像(VIP)', link: 'avatar' },
-        { text: '更新昵称(VIP)', link: 'rename' },
+        { text: '更新用户(VIP)', link: 'user' },
+        { text: '更新昵称(VIP)', link: 'name' },
       ]
     },
     {

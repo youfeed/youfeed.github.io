@@ -17,9 +17,11 @@
 
 Ukey/Secret 是开发者必备密钥串，可前往个人中心-ApiKey获取~
 
-https://api.youloge.com 网页前端可以直接调用 请求标头ukey:ukey
+https://api.youloge.com 网页前端可以直接调用 请求标头`authorization:
+Youloge-API {ukey}`
 
-https://vip.youloge.com 只能后端调用且绑定固定IP 请求标头signer:signer
+https://vip.youloge.com 只能后端调用且绑定固定IP 请求标头`authorization:
+Youloge-VIP {signer}`
 
 ### 加解密数据封装`signature` {#decrypt}
 ::: danger 数据关系

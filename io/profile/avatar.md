@@ -1,8 +1,8 @@
 # 更换头像
 ::: tip 权限组 `VIP` 路径ID `21` 方法ID `04`
-请求域：vip.youloge.com 请求头：`Signer:signer`
+请求域：vip.youloge.com 请求头：`Authorization:Youloge-VIP {Signer}`
 
-作用域：`profile`  方法名: `avatar`
+作用域：`profile/avatar`
 
 错误编号：`2104 00` 频率限制: `10` 
 :::
@@ -19,16 +19,13 @@
 ### 请求代码
 
 ``` http
-POST /profile HTTP/1.1
+POST /profile/avatar HTTP/1.1
 Host: vip.youloge.com
 Lang: zh-CN
 Content-Type: application/json
-Signer: {{Signer}}
+Authorization:Youloge-VIP {Signer}
 {
-  "method": "avatar",
-  "params": {
-    "width":"100"
-  }
+  "width":"100"
 }
 ```
 ### 响应代码

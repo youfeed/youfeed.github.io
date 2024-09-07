@@ -1,8 +1,8 @@
 # 授权登录登录(允许授权给任意Ukey)
 ::: tip 权限组 `API` 路径ID `20` 方法ID `10`
-请求域：api.youloge.com 请求头：`Ukey:ukey`
+请求域：api.youloge.com 请求头：`Authorization:Youloge-API {ukey}`
 
-作用域：`login`  方法名: `authorize`
+作用域：`login/authorize`
 
 错误编号：`2010 00` 频率限制: `10` 
 :::
@@ -18,13 +18,10 @@ POST /login HTTP/1.1
 Host: api.youloge.com
 Lang: zh-CN
 Content-Type: application/json
-ukey: {{Ukey}}
+authorization:Youloge-API {ukey}
 {
-  "method": "authorize",
-  "params": {
-    "expiry":"",
-    "ticket": "DcQlwu6o7hWu+JNyP******"
-  }
+  "expiry":"",
+  "ticket": "DcQlwu6o7hWu+JNyP******"
 }
 ```
 ### 响应代码
