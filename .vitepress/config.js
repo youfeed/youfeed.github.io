@@ -16,7 +16,7 @@ export default defineConfig({
         }
       ],
       '/pro/': { base: '/pro/', items: sidebarPRO() },
-      '/open/': { base: '/open/', items: sidebarOPEN() },
+      '/plus/': { base: '/plus/', items: sidebarPLUS() },
       '/page/': { base: '/page/', items: sidebarPAGE() },
       '/ui/': { base: '/ui/', items: sidebarUI() },
       "/io/": { base: '/io/', items: sidebarIO() },
@@ -58,19 +58,33 @@ function sidebarPRO() {
   ]
 }
 // 开放组件
-function sidebarOPEN() {
+function sidebarPLUS() {
   return [
     { text: '开始使用', link: 'index' },
     {
+      text: '人机验证',
+      base:'plus/captcha/',
+      collapsed: false,
+      items: [
+        { text: '无感验证', link: 'index' }
+      ]
+    },{
+      text: '认证授权',
+      base:'plus/authorize/',
+      collapsed: false,
+      items: [
+        { text: '邮件认证', link: 'index' }
+      ]
+    },{
       text: '单点登录',
-      base:'open/sso/',
+      base:'plus/login/',
       collapsed: false,
       items: [
         { text: '开始使用', link: 'index' }
       ]
     },{
       text: '快捷支付',
-      base:'open/payment/',
+      base:'plus/payment/',
       collapsed: false,
       items: [
         { text: '余额支付', link: 'index' },
@@ -218,6 +232,7 @@ function sidebarIO() {
       items: [
         { text: '申请密钥(VIP)', link: 'apply' },
         { text: '密钥列表(VIP)', link: 'table' },
+        { text: '调试密钥(API)', link: 'debug' },
       ]
     },
     { text: '开发实战', link: 'combat' },

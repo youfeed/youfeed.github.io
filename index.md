@@ -35,9 +35,9 @@ features:
     link: ./io/
     linkText: 查看
   - icon: 🐷 
-    title: Youloge.Open
+    title: Youloge.Plus
     details: 嵌入式小组件,快速集成接口服务到自己服务器
-    link: ./open/
+    link: ./plus/
     linkText: 查看
   - icon: 🐥
     title: Youloge.Pages

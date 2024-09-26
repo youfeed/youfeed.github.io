@@ -9,8 +9,17 @@
 - 同步返回：`支付网关`根据`同步通知`返回结果，反馈给用户支付结果。
 :::
 
+#### 初始配置
 ```js
-usePayment({
+let PLUS = youloge.plus({
+  apikey:'', // 必填*用于加密数据区分开发者
+  notify:'', // 必填*用于同步通知
+});
+```
+### 开始使用
+
+```js
+PLUS.usePayment({
   selector:'#',
   mail:'11247005@qq.com', 
   mode:'profile',
