@@ -32,7 +32,7 @@ export default defineConfig({
     logo: { src: '/loge.svg', width: 24, height: 24 },
     footer: {
       message: '皖ICP备19004549号 皖公安34112402000344',
-      copyright: 'JackBuda Co., Ltd. © 2017-2023 Micateam'
+      copyright: 'JackBuda Co., Ltd. © 2017-2024 Micateam'
     },
   },
   head: [

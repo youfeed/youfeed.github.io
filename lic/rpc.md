@@ -11,70 +11,55 @@ Youloge.RPC 是一个有状态，需要路由匹配的，轻量级远程调用�
 
 # 约定
 - 主域名 `https://api.youloge.com` `https://vip.youloge.com`
-- 请求路径 `path`
-- 请求方式 `POST`
-- 请求头 `Ukey` 或 `Signer`
-- 请求体 `{"method":"","params":{}[]}`
+- 请求方式 `POST` 请求路径 `path/name`
+- 请求标头 `content-type`:`application/json`
+- 请求标头 `Authorization`:`Youloge-ABC ${signature }`
+- 内容 `{}`
+
+## 请求标头
+- `Authorization`:`Youloge-Notify ${signature }`
+- 算法标签(algorithm) + 空格 + `签名内容`(signature)
+- 算法标签可自行约定，采用空格分开即可
 
 ## 简单请求
+* 完整请求URL为 `https://api.youloge.com/login/code`
 ``` 
---> login
-{"method":"profile","params":{"uuid":"userID"}}
-<-- login
+--> login/code
+{"captcha":"","mail":"0000@youloga.com"}
+<-- login/code
 {"err":200,"msg":"success","data":{"uuid":"userID","name":"name"...}}
 ```
-* 完整请求URL为 `https://api.youloge.com/login`
-
-## 批量调用 *
-``` 
---> login
-{"method":"profile","params":[{"uuid":"userID001"},{"uuid":"userID002"}...]}
-<-- login
-{"err":200,"msg":"profile","data":[{"uuid":"userID001","name":"name001"...},{"uuid":"userID002","name":"name002"...}]}
-{"err":200,"msg":"profile","data":[{"uuid":"userID001","name":"name001"...},{"uuid":"userID002","name":"name002"...}]}
-```
-* 完整请求URL为 `https://api.youloge.com/login` 
-* 批量调用`params`具有数量限制
   
+  
+## 接口调用（CURL）
+``` 
+curl 'https://www.youloge.com/captcha/verify' \
+  -H 'accept: */*' \
+  -H 'accept-language: zh-HK,zh;q=0.9,en-HK;q=0.8,en-US;q=0.7,en;q=0.6,zh-CN;q=0.5' \
+  -H 'authorization: Youloge-Notify XXXXXFRmWZP8Tg' \
+  -H 'content-type: application/json' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36' \
+  --data-raw '{"expire":1727372022,"signature":"TeZMph_7DeXGf6OelQl"}'
+```
+
+
 ## 消息订阅(Websocket) req(请求数据) sub(订阅数据) unsub(取消订阅)  
+* 完整请求URL为 `wss://chat.youloge.com/live?signature=?`
+* 完整请求URL为 `wss://api.youloge.com/subscribe` 
+* uuid 本次调用的唯一标识，后端原样返回
 ```
 <---> 000 - 101 - 200 subscribe
-// 订阅频道 无参数
----> {"uuid":"xxx-xxx-xxx-xxx","method":"user.online"}
-<--- {"uuid":"xxx-xxx-xxx-xxx","err":200,"msg":"user.online"}
-<--- {"method":"user.online","data":[]}
-<--- {"method":"user.online","data":[]}
-// 请求数据 有参数
----> {"uuid":"xxx-xxx-xxx-xxx","method":"user.online","params":{"form":"2022-12-12","to":"2022-12-30"}}
-<--- {"uuid":"xxx-xxx-xxx-xxx","err":200,"msg":"user.online"}
-<--- {"uuid":"xxx-xxx-xxx-xxx","data":[]}
-<--- {"uuid":"xxx-xxx-xxx-xxx","data":[]}
-// 心跳
-<--- ping 1000000
----> pong 1000001
+// 订阅数据
+---> {"uuid":"123-xxx-xxx-xxx","method":"live.sub","params":{"room":"1000"}}
+<--- {"uuid":"xxx-xxx-xxx-xxx","method":"live.sub","params":{"status":"ok"}}
+// 请求数据
+---> {"uuid":"xxx-xxx-xxx-123","method":"live.online"}
+<--- {"uuid":"xxx-xxx-xxx-123","method":"live.online","params":{"online":1024}}
+// 链接心跳保持
+<--- {"method":"ping","params":123456789}
+---> {"method":"pong","params":123456789}
 ```
-* 完整请求URL为 `wss://api.youloge.com/subscribe` 
-  
-## 开放接口调用
-``` 
---> login
-{"method":"verify","params":{"sign":"sign"}}
-<-- login
-{"err":200,"msg":"success","data":{"uuid":"userID","verify":"verifys"...}}
-{"err":401,"msg":"Ukey No Found"}
-```
-* 完整请求URL为 `https://api.youloge.com/login` 请求头加入`Ukey:*************************`
 
-## 私有接口调用
-``` 
---> payment
-{"method":"verify","params":{"sign":"sign"}}
-<-- login
-{"err":200,"msg":"success","data":{"uuid":"userID","verify":"verifys"...}}
-{"err":402,"msg":"Signer bind IP"}
-{"err":403,"msg":"Signer is Expired"}
-```
-* 完整请求URL为 `https://vip.youloge.com/payment` 请求头加入`Signer:*************************`
 
 ### 规范错误码
 
