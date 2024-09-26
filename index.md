@@ -29,20 +29,20 @@ features:
     details: 具有路由权限认证的轻量化JSON远程调用协议
     link: ./lic/rpc
     linkText: 查看
-  - icon: 🐹
-    title: Youloge.IO
-    details: 完全开放的的API接口,基于Youloge.RPC协议
-    link: ./io/
+  - icon: 🐥
+    title: Youloge.Pages
+    details: 静态站点代码：源代码案例展示基于`vite`
+    link: ./page/
     linkText: 查看
   - icon: 🐷 
     title: Youloge.Plus
     details: 嵌入式小组件,快速集成接口服务到自己服务器
     link: ./plus/
     linkText: 查看
-  - icon: 🐥
-    title: Youloge.Pages
-    details: 静态站点代码：源代码案例展示基于`vite`
-    link: ./page/
+  - icon: 🐹
+    title: Youloge.IO
+    details: 完全开放的的API接口,基于Youloge.RPC协议
+    link: ./io/
     linkText: 查看
   - icon: 🍄
     title: Youloge.UI
