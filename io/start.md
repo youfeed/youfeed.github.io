@@ -18,11 +18,11 @@ APIkey/Secret 是开发者必备密钥串，可前往个人中心-APIKey获取~�
 
 
 https://api.youloge.com 网页前端可以直接调用 `请求标头`:
-- `Organization: {APIkey}`
+- `Organization: {APIkey*必填}`
 - `Authorization: {AccessToken*可选}`
 
 https://vip.youloge.com 只能`后端调用`且`绑定固定IP` 请求标头：
-- `Organization: {APIkey}`
+- `Organization: {APIkey*必填}`
 - `Authorization: {Signature*可选}` 
 - `Signature`为`AccessToken`通过`Secret`二次AES解密获得：
 
@@ -41,7 +41,7 @@ VIP接口场景：请求头需要`signer`来自于解密登录`signature`
 ``` txt
 signer 用户调用唯一凭证
 expire 用户凭证过期时间
-signature 获取的凭证是否来源与你的签名`ukey`
+signature 获取的凭证是否来源与你的签名`apikey`
 ```
 2. `signature` 解密验证
 secret - 进行AES对称解密即可(服务端调用，不要暴漏)

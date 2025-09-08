@@ -18,12 +18,12 @@
 > `管理员`拥有`审核` `封禁`处理`工单`等等高级权限
 
 
-### 管理后台
+### 网站前台
 
-::: info <Badge type="info" text="www.youlogue.com" />
+::: info <Badge type="info" text="www.youloge.com" />
 - 接口：基本用到了全部接口
-- 功能：框架`layuiadmin`实现一个通用的管理后台
-- 参考：[Github](https://github.com/youfeed/youloge.sso) [NPM](https://github.com/youfeed/youloge.sso)
+- 功能：综合门户展示服务
+- 参考：[Github](https://github.com/youfeed/youloge.com) [NPM](https://github.com/youfeed/youloge.com)
 :::
 
 ### 快捷登录
