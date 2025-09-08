@@ -1,9 +1,9 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+  base: '/',
   title: "Youloge.Docs",
   description: "开放接口服务平台",
-
   themeConfig: {
     sidebar: {
       "/":[
