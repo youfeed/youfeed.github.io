@@ -5,6 +5,7 @@ export default defineConfig({
   title: "Youloge.Docs",
   description: "开放接口服务平台",
   themeConfig: {
+    siteTitle: 'Youloge.Docs',
     sidebar: {
       "/":[
         {
@@ -29,11 +30,14 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/youfeed' }
     ],
-    logo: { src: '/loge.svg', width: 24, height: 24 },
+    logo: { light: '/light.svg',dark:'/dark.svg', width: 24, height: 24 },
     footer: {
       message: '皖ICP备19004549号 皖公安34112402000344',
-      copyright: 'JackBuda Co., Ltd. © 2017-2024 Micateam'
+      copyright: `JackBuda Co., Ltd. © 2017-${new Date().getFullYear()} Micateam `
     },
+    search: {
+      provider: 'local'
+    }
   },
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
