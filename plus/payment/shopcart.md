@@ -33,10 +33,10 @@
 
 
 ### 小组件有哪些
-- [单点登录](./login/) 
-- [人机验证](./captcha/)
-- [认证授权](./authorize/)
-- [转账支付](./payment/)
+- [单点登录](/plus/login/) 
+- [人机验证](/plus/captcha/)
+- [认证授权](/plus/authorize/)
+- [转账支付](/plus/payment/)
 - 推广赏金 promote 
 
 

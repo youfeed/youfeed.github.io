@@ -87,8 +87,7 @@ function sidebarPLUS() {
       base:'plus/payment/',
       collapsed: false,
       items: [
-        { text: '余额支付', link: 'index' },
-        { text: '购物组件', link: 'goods' }
+        { text: '余额支付', link: 'index' }
       ]
     }
   ]
