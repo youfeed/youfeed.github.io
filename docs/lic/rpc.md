@@ -29,9 +29,9 @@ Youloge.RPC 是一个有状态，需要路由匹配的，轻量级远程调用�
 --> login/code
 {"captcha":"","mail":"0000@youloga.com"}
 <-- login/code 
-{"code":200,"message":"success","data":{"uuid":"userID","name":"name"...}}
+{"err":200,"msg":"success","data":{"uuid":"userID","name":"name"...}}
 <-- login/code
-{"code":401,"message":"error"}
+{"err":401,"msg":"error"}
 ```
 ## 批量请求
 * 对统一接口进行多个处理
@@ -39,9 +39,9 @@ Youloge.RPC 是一个有状态，需要路由匹配的，轻量级远程调用�
 --> login/code
 [{"captcha":"","mail":"0000@youloga.com"},{"captcha":"","mail":"0000@youloga.com"}]
 <-- login/code 
-[{"code":200,"message":"success","data":{"uuid":"userID","name":"name"...}},{"code":200,"message":"success","data":{"uuid":"userID","name":"name"...}}]
+[{"err":200,"msg":"success","data":{"uuid":"userID","name":"name"...}},{"err":200,"msg":"success","data":{"uuid":"userID","name":"name"...}}]
 <-- login/code
-[{"code":401,"message":"error"},{"code":401,"message":"error"}]
+[{"err":401,"msg":"error"},{"err":401,"msg":"error"}]
 ```
 
 ## 接口调用（CURL）
@@ -68,22 +68,22 @@ curl 'https://www.youloge.com/captcha/verify' \
 <---> 000 - 101 - 200 subscribe
 // 订阅数据
 ---> {"uuid":"123-xxx-xxx-xxx","method":"live.sub","params":{"room":"1000"}}
-<--- {"uuid":"xxx-xxx-xxx-xxx","code":200,"message":"success","data":{"status":"ok"}}
+<--- {"uuid":"xxx-xxx-xxx-xxx","err":200,"msg":"success","data":{"status":"ok"}}
 // 请求数据
 ---> {"uuid":"xxx-xxx-xxx-123","method":"live.online"}
-<--- {"uuid":"xxx-xxx-xxx-123","code":200,"message":"success","data":{"online":1024}}
+<--- {"uuid":"xxx-xxx-xxx-123","err":200,"msg":"success","data":{"online":1024}}
 // 批量调用
 <--- [{"uuid":"xxx-xxx-xxx-123","method":"live.online"},{"uuid":"xxx-xxx-xxx-123","method":"live.online"}]
----> [{"uuid":"xxx-xxx-xxx-123","code":200,"message":"success","data":{"online":1024}},{"uuid":"xxx-xxx-xxx-123","code":200,"message":"success","data":{"online":1024}}]
+---> [{"uuid":"xxx-xxx-xxx-123","err":200,"msg":"success","data":{"online":1024}},{"uuid":"xxx-xxx-xxx-123","err":200,"msg":"success","data":{"online":1024}}]
 // 链接心跳保持
 ---> {"method":"ping","params":123456789}
-<--- {"code":200,"message":"success","params":123456789}
+<--- {"err":200,"msg":"success","params":123456789}
 ```
 
 
 ### 规范错误码
 
-> `code`通用错误码
+> `err`通用错误码
 
 |  错误码   | 说明  |
 |  ----  | ----  |
