@@ -87,11 +87,12 @@ function sidebarPLUS() {
         { text: '开始使用', link: 'index' }
       ]
     },{
-      text: '快捷支付',
+      text: '支付转账',
       base:'plus/payment/',
       collapsed: false,
       items: [
-        { text: '余额支付', link: 'index' }
+        { text: '收银台付款', link: 'index' },
+        { text: '购物车付款', link: 'cart' }
       ]
     }
   ]

@@ -1,23 +1,27 @@
-# 快捷支付组件 `C2B`
+# Youloge.Cart 购物车组件
 
-::: warning  快捷支付组件服务
-可以快速发起转账功能，
-请注意资金安全
+::: info
+购物车支付，内嵌地址选择器，邮箱输入，身份证输入，手机号输入；用于复杂场景支付
+
+- Youloge商城，商品元数据(SPU)由官方提供与维护;
+- 商户/开发者 维护商品下的套餐与库存(SKU)
 :::
+
 
 > Youloge支付交易：货币符号为`#`(读作`hash /hæʃ/`) 货币单位位`RGB`(全称`Red Green Blue`即`红绿蓝三原色`) 货币精度为`2`位小数,
 
-::: info <Badge type="info" text="usePayment" />
-- 1. 网页端：调用`usePayment函数`发起支付请求
+::: info <Badge type="info" text="useCart" />
+- 1. 网页端：调用`useCart函数`发起支付请求
 - 2. 支付网关：用户获取`支付码`-`验证支付码`-`签发 支付签名`
 - 3. 同步通知：开发者`解密 支付签名`->提取`网关 方法 参数 签名`->请求`VIP接口`
 - 4. 同步返回：`支付网关`根据`同步通知`返回结果，反馈给用户支付结果。
 :::
 
+
 #### 开始使用
 ```js
 let PLUS = youloge.plus();
-PLUS.usePayment({
+PLUS.useCart({
   selector:'',
   // 付款对象
   payer:{
@@ -25,14 +29,11 @@ PLUS.usePayment({
   },
   // 收款对象
   payee:{
-    type:'' // 收款类型 account drive goods ...
-    uuid:'' // 收款类型的UUID
+    type:'goods', // 默认商品类型
+    uuid:'' // 商品的UUID
   },
-  // 金额对象
-  money:{
-    symbol:'RGB' // 默认RGB 
-    amount: '1.02' // 优先使用该金额展示与下单 实际扣款时会比对 金额不符支付失败
-  },
+  // 套餐的UUID可多个,至少需要一个
+  combos:[],
   // 本地订单号 
   local:'no.123456789',
   // 附加订单备注 - 
@@ -46,32 +47,20 @@ PLUS.usePayment({
 });
 ```
 
-#### 参数说明
-
-| 参数名  |  值  |  说明 | 
-| ------------- | :-----------: | :-----------: |
-| selector |	class选择器	| 为空或找不class则全屏 |
-| payer.uuid |	付款账号	| 任意有效邮箱：付款人 |
-| payee.type |	模块选择	| `profile`,`drive`,`movie`... |
-| payee.uuid |	模块编号	| 模块产品UUID |
-| money.symbol |	金额类型	| 默认RGB  |
-| money.amount |	付款金额	| 优先使用该参数展示 |
-| local |	本地单号	| 自定义订单号  |
-| notify |	同步通知地址	| `https`有效地址 |
-
-#### 模块参数说明 [`payee.type`]
+#### 填充参数说明 [`required.[]`]
 
 | 参数值  |  描述  |  备注 | 
 | ------------- | :-----------: | :-----------: |
-| profile |	个人付款	| 用于个人对个人转账 |
-| drive |	云盘支付	| 用于个人购买服务/商品转账 |
-| movie |	电影支付	| 用于个人购买电影转账 |
+| type |	填充类型	| 收货信息 address 手机号 mobile 身份证 idcard 邮箱 email |
+| value |	预设数据	| 不同填充类型 所需的数据格式有所区别 |
 ...
 ---
+
 
 #### 处理步骤一：同步通知 
 
 > 用户验证支付码之后：会`同步通知`到你的`notify`地址，你需要在`notify`地址中验证支付结果
+
 ```http
 POST / HTTP/1.1
 Host: {{notify}}
@@ -91,19 +80,26 @@ Content-Type: application/json
 > 解密签名后得到的`JSON`字符串格式数据
 ```js
 {
-    "uuid": "78221154***",
+    "uuid": "",
     "local": "",
     "attach": "",
     "payer": {
         "uuid": "",
     },
     "payee": {
-        "type": "",
+        "type":"goods",
         "uuid": "",
     },
+    "combos":[
+      {
+        "uuid":"122",
+        "amount":"12.00",
+        "quantity":"2"
+      }
+    ],
     "money": {
-        "symbol": "",
-        "amount": "",
+        "symbol": "RGB",
+        "amount": "52.00", // 最终金额
     },
     "routed": "wallet",
     "method": "verify",
@@ -130,7 +126,7 @@ Content-Type: application/json
 Organization: {{APIKEY}}
 Authorization: {{access_token}}
 {
-  "uuid": "78221154***",
+  "uuid": "",
   "payment":"fQC1Wj0tcoa24UnA8g8ubI6Xj79wLsz3CjH******"
 }
 ```
@@ -138,20 +134,6 @@ Authorization: {{access_token}}
 
 
 ### 支付保存
-
-- 确认支付后订单有效，支付有效
-- `profile`用户转账模块，查看资金流水即可
-- `drive`,`movie` 推广购买模块，查看提成流水即可
-- 推广赏金实时到账，不支持撤销交易
-
-
-### 支付说明
-
-开发者网站前端配置支付参数，调用支付组件；支付组件验证用户支付码后，会本地调用通知接口网址，开发者进行确认支付参数与配置参数一致验证，开发者验证参数一致，则进行请求VIP接口进行确认支付，VIP接口收到确认支付参数后会进行资金划扣；划扣完成后返回{"err":200};开发者在确认资金划扣完成后，通知接口同样返回{"err":200},支付组件收到支付成功则展示支付成功页面。
-
-注意：如果开发者通知接口不进行`支付确认(冲单)`而是直接返回`{"err":200}`，支付组件也会展示支付成功页面(会造成支付成功错觉，资金不到位，服务不可达)
-
-
-- 个人对个人实时到账(无手续费)
-- 个人对服务/商品延迟到账(N+N)有手续费
-- 个人对开发者(赏金结算24小时)无手续费
+- `required`内容
+- `goods`商品购买模块，商家端可查看到`发货信息或收货邮箱等信息`
+- `推广支付`查询查看提成流水即可(确认收货提成延后到账)
