@@ -47,12 +47,11 @@ PLUS.useCart({
 });
 ```
 
-#### 填充参数说明 [`required.[]`]
+#### 填充参数说明 [`combos.[]`]
 
 | 参数值  |  描述  |  备注 | 
 | ------------- | :-----------: | :-----------: |
-| type |	填充类型	| 收货信息 address 手机号 mobile 身份证 idcard 邮箱 email |
-| value |	预设数据	| 不同填充类型 所需的数据格式有所区别 |
+| *uuid* |	套餐UUID	| 套餐UUID由商户创建与维护 |
 ...
 ---
 
@@ -93,13 +92,15 @@ Content-Type: application/json
     "combos":[
       {
         "uuid":"122",
-        "amount":"12.00",
-        "quantity":"2"
+        "amount":"12.00", // 单价*
+        "bounty":"0.01", // 赏金*
+        "quantity":"2" // 数量
       }
     ],
     "money": {
         "symbol": "RGB",
         "amount": "52.00", // 最终金额
+        "bounty":"0.25" // 最终赏金
     },
     "routed": "wallet",
     "method": "verify",
