@@ -7,6 +7,7 @@
 作者：Micateam
 
 # 概述
+
 Youloge.RPC 是一个有状态，需要路由匹配的，轻量级远程调用协议。它非常适合用在前端-后端，后端-后端，代理-节点等方面使用。
 
 # 约定
@@ -27,19 +28,32 @@ Youloge.RPC 是一个有状态，需要路由匹配的，轻量级远程调用�
 
 ``` 
 --> login/code
-{"captcha":"","mail":"0000@youloga.com"}
+{"id":"","captcha":"","mail":"0000@youloga.com"}
 <-- login/code 
-{"err":200,"msg":"success","data":{"uuid":"userID","name":"name"...}}
+{"id":"","result":{"uuid":"userID","name":"name"...}}
 <-- login/code
-{"err":401,"msg":"error"}
+{"id":"","error":{"code":"","message":""}}
 ```
+
+## 标准JSONRPC请求
+* 完整请求URL为 `https://api.youloge.com`
+
+``` 
+--> login/code
+{"id":"","method":"login/code","params":{"captcha":"","mail":"0000@youloga.com"}}
+<-- login/code 
+{"id":"","result":{"uuid":"userID","name":"name"...}}
+<-- login/code
+{"id":"","error":{"code":"","message":""}}
+```
+
 ## 批量请求
 * 对统一接口进行多个处理
 ``` 
 --> login/code
-[{"captcha":"","mail":"0000@youloga.com"},{"captcha":"","mail":"0000@youloga.com"}]
+[{"id":"","captcha":"","mail":"0000@youloga.com"},{"captcha":"","mail":"0000@youloga.com"}]
 <-- login/code 
-[{"err":200,"msg":"success","data":{"uuid":"userID","name":"name"...}},{"err":200,"msg":"success","data":{"uuid":"userID","name":"name"...}}]
+[{"id":"","msg":"success","data":{"uuid":"userID","name":"name"...}},{"id":"","msg":"success","data":{"uuid":"userID","name":"name"...}}]
 <-- login/code
 [{"err":401,"msg":"error"},{"err":401,"msg":"error"}]
 ```
@@ -60,30 +74,30 @@ curl 'https://www.youloge.com/captcha/verify' \
 ## 消息订阅(Websocket) req(请求数据) sub(订阅数据) unsub(取消订阅)  
 * 完整请求URL为 `wss://chat.youloge.com/live?signature=?`
 * 完整请求URL为 `wss://api.youloge.com/subscribe` 
-* `uuid` 调用的唯一标识，后端原样返回
+* `id` 调用的唯一标识，后端原样返回
 * `method` 请求调用方法
 * `params` 请求调用参数
 
 ```
 <---> 000 - 101 - 200 subscribe
 // 订阅数据
----> {"uuid":"123-xxx-xxx-xxx","method":"live.sub","params":{"room":"1000"}}
-<--- {"uuid":"xxx-xxx-xxx-xxx","err":200,"msg":"success","data":{"status":"ok"}}
+---> {"id":"123-xxx-xxx-xxx","method":"live.sub","params":{"room":"1000"}}
+<--- {"id":"xxx-xxx-xxx-xxx","result":{"status":"ok"}}
 // 请求数据
----> {"uuid":"xxx-xxx-xxx-123","method":"live.online"}
-<--- {"uuid":"xxx-xxx-xxx-123","err":200,"msg":"success","data":{"online":1024}}
+---> {"id":"xxx-xxx-xxx-123","method":"live.online"}
+<--- {"id":"xxx-xxx-xxx-123","result":{"online":1024}}
 // 批量调用
-<--- [{"uuid":"xxx-xxx-xxx-123","method":"live.online"},{"uuid":"xxx-xxx-xxx-123","method":"live.online"}]
----> [{"uuid":"xxx-xxx-xxx-123","err":200,"msg":"success","data":{"online":1024}},{"uuid":"xxx-xxx-xxx-123","err":200,"msg":"success","data":{"online":1024}}]
+<--- [{"id":"xxx-xxx-xxx-123","method":"live.online"},{"id":"xxx-xxx-xxx-123","method":"live.online"}]
+---> [{"id":"xxx-xxx-xxx-123","result":{"online":1024}},{"id":"xxx-xxx-xxx-123","result":{"online":1024}}]
 // 链接心跳保持
 ---> {"method":"ping","params":123456789}
-<--- {"err":200,"msg":"success","params":123456789}
+<--- {"id":200,"result":123456789}
 ```
 
 
 ### 规范错误码
 
-> `err`通用错误码
+> 通用错误码 `error.code`
 
 |  错误码   | 说明  |
 |  ----  | ----  |
@@ -96,7 +110,7 @@ curl 'https://www.youloge.com/captcha/verify' \
 | 408  | 批量请求部分错误 |
 | 409  | 批量请求参数错误 |
 
-> 业务错误码 - 二种方式
+> 业务错误码 - `error.code`
 
 |  错误码   | 说明  |
 |  ----  | ----  |
