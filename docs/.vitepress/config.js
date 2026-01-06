@@ -2,8 +2,9 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   base: '/',
-  title: "Youloge.Docs",
-  description: "开放接口服务平台",
+  title: "Youloge.Docs - 开源开放接口服务平台 | 快速集成 API 接口",
+  titleTemplate: ' - 开源开放接口服务平台 | 快速、零权限集成 API',
+  description: "Youloge.Docs 是开源开放接口服务平台，提供 RPC 协议、API 接口、Vue3 组件库等资源，支持快速、零权限集成到你的项目中",
   themeConfig: {
     siteTitle: 'Youloge.Docs',
     sidebar: {
