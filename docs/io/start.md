@@ -14,8 +14,80 @@
 
 ### 开发接口通信协议`Youloge.RPC`
 
-APIkey/Secret 是开发者必备密钥串，可前往个人中心-APIKey获取~或使用调试APIKEY
+APIkey/Secret 是开发者必备密钥串，可前往个人中心-APIKey获取~或使用[调试APIKEY](https://api.youloge.com/apikey/debug)
 
+### 开发第一步 `认识路由`
+
+1. 直接访问`https://api.youloge.com` 可以得到如下字典
+```
+{
+  "id": null,
+  "result": [
+    {
+      "uuid": 10,
+      "name": "登录注册",
+      "path": "/login/index",
+      "perm": 0,
+      "desc": "登录注册接口"
+    },
+    {
+      "uuid": 11,
+      "name": "账户管理",
+      "path": "/account/index",
+      "perm": 0,
+      "desc": "账户相关接口"
+    },
+    ...
+  ]
+}
+```
+- uuid 是控制器ID Youloge.API的错误码为`6位数字` 这里指的`前2位`
+- name 是控制器名称
+- path 是控制器路由
+- perm 是控制器权限
+- desc 是控制器描述
+
+2. 随便挑选一个路由访问`https://api.youloge.com/login/index`
+```
+{
+  "id": null,
+  "result": [
+    {
+      "uuid": 1011,
+      "name": "授权码",
+      "path": "/login/authorize",
+      "perm": 0,
+      "desc": "授权码接口"
+    },
+    {
+      "uuid": 1014,
+      "name": "PassKey登录",
+      "path": "/login/passkey",
+      "perm": 4,
+      "desc": "PassKey登录接口"
+    },
+    ...
+  ]
+}
+```
+- uuid 是方法ID Youloge.API的错误码为`6位数字` 这里指的`前4位`
+- name 是方法名称
+- path 是方法路由
+- perm 是方法权限
+- desc 是方法描述
+
+### 开发第二步 `认识权限`
+
+ * 开放接口 0 000 
+ * 验证登录 1 001 needLogin
+ * 开发账户 2 010 needAdmin(验证APIKEY所有人与当前登录用户为同一人)
+ * 二次验证 4 100 needChallenge(验证Passkey或TOTP动态令牌)
+ 
+权限可以互相组合 
+- 例如 `1+2=3` 即为`needLogin+needAdmin` 即为`验证登录+开发账户`
+- 例如 `1+4=5` 即为`needLogin+needChallenge` 即为`验证登录+二次验证`
+
+### 开发第二步 `如何调用`
 
 https://api.youloge.com 网页前端可以直接调用 `请求标头`:
 - `Organization: {APIkey*必填}`
@@ -23,8 +95,7 @@ https://api.youloge.com 网页前端可以直接调用 `请求标头`:
 
 https://vip.youloge.com 只能`后端调用`且`绑定固定IP` 请求标头：
 - `Organization: {APIkey*必填}`
-- `Authorization: {Signature*可选}` 
-- `Signature`为`AccessToken`通过`Secret`二次AES解密获得：
+- `Authorization: {Signature*可选}` `Signature`为`AccessToken`通过`Secret`二次AES解密获得：
 
 ### 加解密数据封装`signature` {#decrypt}
 ::: danger 数据关系
